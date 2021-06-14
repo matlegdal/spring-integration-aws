@@ -39,6 +39,9 @@ ext {
 	kinesisClientVersion = '1.14.3'
 	kinesisProducerVersion = '0.14.6'
 
+	awsSdk2xVersion= "2.16.79"
+	kinesisClient2xVersion = "2.3.4"
+
 	idPrefix = 'aws'
 
 	linkHomepage = 'https://github.com/spring-projects/spring-integration-aws'
@@ -116,6 +119,12 @@ dependencies {
 	optionalApi 'com.amazonaws:aws-java-sdk-kinesis'
 	optionalApi 'com.amazonaws:aws-java-sdk-dynamodb'
 	optionalApi "com.amazonaws:dynamodb-lock-client:$dynamodbLockClientVersion"
+
+	implementation platform("software.amazon.awssdk:bom:$awsSdk2xVersion")
+	optionalApi "software.amazon.awssdk:kinesis"
+	optionalApi "software.amazon.awssdk:dynamodb"
+	optionalApi "software.amazon.awssdk:cloudwatch"
+	optionalApi "software.amazon.kinesis:amazon-kinesis-client:$kinesisClient2xVersion"
 
 	optionalApi "javax.servlet:javax.servlet-api:$servletApiVersion"
 
